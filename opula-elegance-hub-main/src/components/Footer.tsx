@@ -34,7 +34,7 @@ export const Footer = () => {
               <li>Yas Bay, Abu Dhabi</li>
               <li>United Arab Emirates</li>
               <li className="pt-2">
-                <a href="tel:+971000000000" className="hover:text-white">+971 00 000 0000</a>
+                <a href="tel:800678520" className="hover:text-white">800 OPULA</a>
               </li>
             </ul>
           </div>

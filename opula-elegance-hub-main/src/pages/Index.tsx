@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -201,6 +202,7 @@ const galleryImages = [
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -232,6 +234,11 @@ const Index = () => {
       title: "Thank you for your interest",
       description: "The brochure will be sent to your email shortly.",
     });
+    
+    // Redirect to thank you page after a short delay
+    setTimeout(() => {
+      navigate('/thank-you');
+    }, 1000);
   };
 
   const openGallery = (index: number) => {
@@ -567,8 +574,13 @@ const Index = () => {
                 <SelectContent className="bg-white border border-primary/20 shadow-lg">
                   <SelectItem value="studio" className="text-primary font-medium hover:bg-primary/10">Studio</SelectItem>
                   <SelectItem value="1br" className="text-primary font-medium hover:bg-primary/10">1 Bedroom</SelectItem>
-                  <SelectItem value="2br" className="text-primary font-medium hover:bg-primary/10">2 Bedrooms</SelectItem>
-                  <SelectItem value="3br" className="text-primary font-medium hover:bg-primary/10">3 Bedrooms</SelectItem>
+                  <SelectItem value="1br-duplex" className="text-primary font-medium hover:bg-primary/10">1 Bedroom Duplex</SelectItem>
+                  <SelectItem value="2br" className="text-primary font-medium hover:bg-primary/10">2 Bedroom</SelectItem>
+                  <SelectItem value="2br-duplex" className="text-primary font-medium hover:bg-primary/10">2 Bedroom Duplex</SelectItem>
+                  <SelectItem value="3br-duplex" className="text-primary font-medium hover:bg-primary/10">3 Bedroom Duplex</SelectItem>
+                  <SelectItem value="3br-townhouse" className="text-primary font-medium hover:bg-primary/10">3 Bedroom Townhouse</SelectItem>
+                  <SelectItem value="4br-duplex" className="text-primary font-medium hover:bg-primary/10">4 Bedroom Duplex</SelectItem>
+                  <SelectItem value="4br-penthouse" className="text-primary font-medium hover:bg-primary/10">4 Bedroom Penthouse</SelectItem>
                 </SelectContent>
               </Select>
             </div>
