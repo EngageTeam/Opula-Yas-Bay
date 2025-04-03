@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Solid Color Favicon</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    button {
+      background-color: #2A2A28;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+    }
+    input {
+      padding: 8px;
+      margin-right: 10px;
+    }
+    .instructions {
+      background-color: #f5f5f0;
+      padding: 15px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generate Solid Color Favicon</h1>
+  <p>Use this tool to generate a solid color favicon for the Opula website.</p>
+  
+  <div>
+    <label for="colorInput">Choose a color:</label>
+    <input type="color" id="colorInput" value="#2A2A28">
+    <button onclick="generateFavicon()">Generate Favicon</button>
+  </div>
+  
+  <canvas id="faviconCanvas" width="64" height="64"></canvas>
+  
+  <div>
+    <button onclick="downloadFavicon()">Download Favicon</button>
+  </div>
+  
+  <div class="instructions">
+    <h3>Instructions:</h3>
+    <ol>
+      <li>Choose a color using the color picker (default is the Opula primary color #2A2A28)</li>
+      <li>Click "Generate Favicon" to create the favicon</li>
+      <li>Click "Download Favicon" to download the favicon</li>
+      <li>Replace the existing favicon.ico in the public folder with this new file</li>
+    </ol>
+  </div>
+
+  <script>
+    function generateFavicon() {
+      const canvas = document.getElementById('faviconCanvas');
+      const ctx = canvas.getContext('2d');
+      const color = document.getElementById('colorInput').value;
+      
+      // Fill the canvas with the selected color
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    
+    function downloadFavicon() {
+      const canvas = document.getElementById('faviconCanvas');
+      const link = document.createElement('a');
+      link.download = 'favicon.ico';
+      link.href = canvas.toDataURL('image/png');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    
+    // Generate the favicon with the default color on page load
+    window.onload = generateFavicon;
+  </script>
+</body>
+</html>
