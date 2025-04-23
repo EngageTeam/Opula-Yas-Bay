@@ -27,13 +27,13 @@ export const Navbar = () => {
           : "bg-black/20 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <img 
-              src="https://dhbholding.com/wp-content/uploads/2024/10/OPULA_Logo_Transparent.svg" 
-              alt="Opula Logo" 
-              className="h-12 md:h-14"
+            <img
+              src="https://dhbholding.com/wp-content/uploads/2024/10/OPULA_Logo_Transparent.svg"
+              alt="Opula Logo"
+              className="h-8 xs:h-10 sm:h-12 md:h-14"
             />
           </Link>
           <div className="hidden items-center space-x-8">
@@ -43,10 +43,10 @@ export const Navbar = () => {
             <NavLink href="#contact">Contact</NavLink>
           </div>
           <Sheet>
-            <SheetTrigger className="p-2">
-              <Menu className={`w-6 h-6 ${isScrolled ? 'text-primary' : 'text-white'}`} />
+            <SheetTrigger className="p-1 sm:p-2">
+              <Menu className={`w-5 h-5 sm:w-6 sm:h-6 ${isScrolled ? 'text-primary' : 'text-white'}`} />
             </SheetTrigger>
-            <SheetContent className="bg-black p-0">
+            <SheetContent className="bg-black p-0 w-full max-w-[300px] sm:max-w-[350px]">
               <div
                 className="h-full w-full relative bg-black"
                 style={{
@@ -55,12 +55,12 @@ export const Navbar = () => {
                 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-black/95"></div>
-                <div className="flex flex-col space-y-6 mt-12 relative z-10 p-8">
+                <div className="flex flex-col space-y-4 sm:space-y-6 mt-8 sm:mt-12 relative z-10 p-6 sm:p-8">
                   <div className="mb-4">
                     <img
                       src="https://dhbholding.com/wp-content/uploads/2024/10/OPULA_Logo_Transparent.svg"
                       alt="Opula Logo"
-                      className="h-10 mb-8"
+                      className="h-8 sm:h-10 mb-6 sm:mb-8"
                     />
                   </div>
                   <MobileNavLink href="#project">About Project</MobileNavLink>
@@ -89,7 +89,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="text-xl font-display text-white hover:text-sand-200 transition-colors py-2 border-b border-white/10"
+    className="text-lg xs:text-xl font-display text-white hover:text-sand-200 transition-colors py-2 border-b border-white/10"
   >
     {children}
   </a>

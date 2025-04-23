@@ -1,25 +1,26 @@
 import { useEffect, useRef, useState } from "react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useTrackingEvents } from "../hooks/use-tracking-events";
+import { Input } from "../components/ui/input";
+import { Label } from "../components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
+} from "../components/ui/select";
+import { Button } from "../components/ui/button";
+import { toast } from "../components/ui/use-toast";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
   DialogClose,
-} from "@/components/ui/dialog";
+} from "../components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // Gallery images array with categories
@@ -204,6 +205,7 @@ const galleryImages = [
 const Index = () => {
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { trackPageView } = useTrackingEvents();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -223,13 +225,38 @@ const Index = () => {
     : galleryImages.filter(img => img.category === activeFilter);
 
   useEffect(() => {
+    // Track page view when component mounts
+    trackPageView('home');
+    
+    // Play video
     if (videoRef.current) {
       videoRef.current.play();
     }
-  }, []);
+  }, [trackPageView]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Track form submission event
+    if (window.fbq) {
+      window.fbq('track', 'Lead');
+    }
+    
+    // Track Spotify alias (email collection)
+    if (window.spdt && formData.email) {
+      window.spdt('alias', {
+        email: formData.email,
+        phone_number: formData.phone || undefined,
+      });
+    }
+    
+    // Track AdRoll identify email
+    if (window.adroll && formData.email) {
+      window.adroll.identify_email({
+        email: formData.email
+      });
+    }
+    
     toast({
       title: "Thank you for your interest",
       description: "The brochure will be sent to your email shortly.",
@@ -279,31 +306,31 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="font-display text-5xl md:text-7xl text-white mb-6">
+              <h1 className="font-display text-4xl xs:text-5xl md:text-7xl text-white mb-4 sm:mb-6">
                 Opula Residences
-                <span className="block text-2xl md:text-3xl mt-2 text-sand-100">Yas Bay</span>
+                <span className="block text-xl xs:text-2xl md:text-3xl mt-2 text-sand-100">Yas Bay</span>
               </h1>
-              <p className="text-sand-100 text-lg md:text-xl mb-8">
+              <p className="text-sand-100 text-base xs:text-lg md:text-xl mb-6 sm:mb-8">
                 Discover a new living experience in Abu Dhabi's most prestigious waterfront address
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <p className="text-3xl font-display text-white">192</p>
-                  <p className="text-sand-100 text-sm">Units</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 xs:gap-4 mb-6 sm:mb-8">
+                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg">
+                  <p className="text-2xl xs:text-3xl font-display text-white">192</p>
+                  <p className="text-sand-100 text-xs xs:text-sm">Units</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <p className="text-3xl font-display text-white">15</p>
-                  <p className="text-sand-100 text-sm">Floors</p>
+                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg">
+                  <p className="text-2xl xs:text-3xl font-display text-white">15</p>
+                  <p className="text-sand-100 text-xs xs:text-sm">Floors</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <p className="text-3xl font-display text-white">7</p>
-                  <p className="text-sand-100 text-sm">Duplexes</p>
+                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg">
+                  <p className="text-2xl xs:text-3xl font-display text-white">7</p>
+                  <p className="text-sand-100 text-xs xs:text-sm">Duplexes</p>
                 </div>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
-                      <p className="text-xl font-display text-white">Watch</p>
-                      <p className="text-sand-100 text-sm">The Video</p>
+                    <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+                      <p className="text-lg xs:text-xl font-display text-white">Watch</p>
+                      <p className="text-sand-100 text-xs xs:text-sm">The Video</p>
                     </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-4xl p-0 bg-black overflow-hidden">
@@ -332,14 +359,14 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl text-sand-100 mb-4">About the Project</h2>
-              <h3 className="font-display text-4xl md:text-5xl text-white mb-6 leading-tight">
+              <h2 className="text-xl xs:text-2xl text-sand-100 mb-3 sm:mb-4">About the Project</h2>
+              <h3 className="font-display text-3xl xs:text-4xl md:text-5xl text-white mb-4 sm:mb-6 leading-tight">
                 AT THE CENTRE OF OPULA IS THOUGHTFUL & <em className="italic">INSPIRED LIVING</em>
               </h3>
-              <p className="text-sand-200 leading-relaxed">
+              <p className="text-sand-200 leading-relaxed text-sm xs:text-base">
                 Opula sets a new benchmark for living standards through its creative design and thoughtful layouts. Opula offers a carefully curated living experience, blending sophistication and practicality. With 192 apartments, including 3 exclusive penthouses and 5 elegant townhouses, the project provides a variety of options tailored to different lifestyles.
               </p>
-              <p className="text-sand-200 leading-relaxed mt-4">
+              <p className="text-sand-200 leading-relaxed mt-3 sm:mt-4 text-sm xs:text-base">
                 Residents can enjoy breathtaking views of the ocean and parks, while an infinity pool offers a serene retreat. The development features 109 simplex units and 83 duplexes, ranging from 1 to 4-bedroom layouts, offering the flexibility to suit diverse needs—whether it's the efficiency of a simplex or the spaciousness of a duplex. Opula offers a lifestyle that blends comfort, sophistication and functionality.
               </p>
             </motion.div>
@@ -406,12 +433,12 @@ const Index = () => {
           <h2 className="font-display text-4xl text-primary text-center mb-8">Gallery</h2>
           
           {/* Filter buttons */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-1 xs:gap-2 mb-6 sm:mb-10">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                   activeFilter === category
                     ? "bg-primary text-white"
                     : "bg-sand-200 text-primary hover:bg-sand-300"
@@ -422,7 +449,7 @@ const Index = () => {
             ))}
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
             {filteredImages.map((image, index) => (
               <div
                 key={index}
@@ -452,23 +479,23 @@ const Index = () => {
         {/* Full-page Gallery View */}
         <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
           <DialogContent className="max-w-7xl p-0 bg-black/95 border-none">
-            <div className="relative w-full h-[80vh] flex items-center justify-center">
-              <DialogClose className="absolute top-4 right-4 z-50">
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                  <X className="h-6 w-6" />
+            <div className="relative w-full h-[70vh] sm:h-[80vh] flex items-center justify-center">
+              <DialogClose className="absolute top-2 sm:top-4 right-2 sm:right-4 z-50">
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-8 w-8 sm:h-10 sm:w-10">
+                  <X className="h-4 w-4 sm:h-6 sm:w-6" />
                 </Button>
               </DialogClose>
               
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-30"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-30 h-8 w-8 sm:h-10 sm:w-10"
                 onClick={prevImage}
               >
-                <ChevronLeft className="h-8 w-8" />
+                <ChevronLeft className="h-5 w-5 sm:h-8 sm:w-8" />
               </Button>
               
-              <div className="w-full h-full flex items-center justify-center p-4">
+              <div className="w-full h-full flex items-center justify-center p-2 sm:p-4">
                 <img
                   src={galleryImages[currentImageIndex].src}
                   alt={galleryImages[currentImageIndex].alt}
@@ -479,15 +506,15 @@ const Index = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-30"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-30 h-8 w-8 sm:h-10 sm:w-10"
                 onClick={nextImage}
               >
-                <ChevronRight className="h-8 w-8" />
+                <ChevronRight className="h-5 w-5 sm:h-8 sm:w-8" />
               </Button>
             </div>
             
-            <div className="bg-black/80 p-4 text-center">
-              <p className="text-white text-lg">
+            <div className="bg-black/80 p-2 sm:p-4 text-center">
+              <p className="text-white text-xs sm:text-base md:text-lg">
                 {galleryImages[currentImageIndex].alt} - {currentImageIndex + 1} of {galleryImages.length}
               </p>
             </div>
@@ -498,14 +525,14 @@ const Index = () => {
 
       <section className="py-20 bg-primary text-sand-50">
         <div className="container mx-auto px-6">
-          <h2 className="font-display text-4xl mb-12 text-center">Location</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <h2 className="font-display text-3xl xs:text-4xl mb-8 sm:mb-12 text-center">Location</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h3 className="font-display text-3xl mb-6">Yas Bay</h3>
-              <p className="text-sand-200 leading-relaxed mb-6">
+              <h3 className="font-display text-2xl xs:text-3xl mb-4 sm:mb-6">Yas Bay</h3>
+              <p className="text-sand-200 leading-relaxed mb-4 sm:mb-6 text-sm xs:text-base">
                 Experience life at Yas Bay, a destination that offers everything for you, your family, and friends. With top-tier amenities, stunning views, and a thoughtfully designed environment, it's a place that combines convenience with quality living.
               </p>
-              <ul className="space-y-4 text-sand-200">
+              <ul className="space-y-2 sm:space-y-4 text-sand-200 text-sm xs:text-base">
                 <li>• Minutes from Yas Marina Circuit</li>
                 <li>• Close to world-class entertainment</li>
                 <li>• Easy access to Abu Dhabi and Dubai</li>
@@ -525,13 +552,13 @@ const Index = () => {
 
       <section className="py-20 bg-sand-100">
         <div className="container mx-auto px-6">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="font-display text-4xl text-primary mb-4">Download Brochure</h2>
-            <p className="text-primary/80">
+          <div className="max-w-2xl mx-auto text-center mb-8 sm:mb-12">
+            <h2 className="font-display text-3xl xs:text-4xl text-primary mb-3 sm:mb-4">Download Brochure</h2>
+            <p className="text-primary/80 text-sm xs:text-base">
               Complete the form below to receive our detailed project brochure.
             </p>
           </div>
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4 xs:px-0">
             <div className="space-y-2">
               <Label htmlFor="name">Full Name</Label>
               <Input
