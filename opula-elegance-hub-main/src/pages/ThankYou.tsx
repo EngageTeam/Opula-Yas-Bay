@@ -46,7 +46,7 @@ const ThankYou = () => {
             <h1 className="font-display text-3xl sm:text-4xl text-primary mb-3 sm:mb-4">Thank You!</h1>
             
             <p className="text-primary/80 text-base sm:text-lg mb-6 sm:mb-8">
-              Your information has been successfully submitted. We appreciate your interest in Opula Residences.
+              Your information has been successfully submitted. We appreciate your interest in Opula Residences, Yas Bay.
             </p>
             
             <p className="text-primary/70 text-sm sm:text-base mb-8 sm:mb-10">
