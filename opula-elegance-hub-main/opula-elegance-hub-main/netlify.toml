@@ -1,4 +1,5 @@
 [build]
+  base = "opula-elegance-hub-main"
   command = "npm run build"
   publish = "dist"
 

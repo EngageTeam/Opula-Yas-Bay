@@ -252,9 +252,7 @@ const Index = () => {
     
     // Track AdRoll identify email
     if (window.adroll && formData.email) {
-      window.adroll.identify_email({
-        email: formData.email
-      });
+      window.adroll.identify_email(formData.email);
     }
     
     toast({

@@ -48,9 +48,7 @@ const EventRegistration = () => {
     
     // Track AdRoll identify email
     if (window.adroll && formData.email) {
-      window.adroll.identify_email({
-        email: formData.email
-      });
+      window.adroll.identify_email(formData.email);
     }
     
     // Track lead event
@@ -108,7 +106,16 @@ const EventRegistration = () => {
                   <line x1="8" x2="8" y1="2" y2="6" />
                   <line x1="3" x2="21" y1="10" y2="10" />
                 </svg>
-                <span className="text-xs sm:text-sm font-light">Wednesday, May 7, 2025</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs sm:text-sm font-light">Wednesday, May 7th, 2025</span>
+                  <div className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white xs:w-3 xs:h-3 sm:w-4 sm:h-4">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span className="text-xs sm:text-sm font-light">Starts 6:00 PM</span>
+                  </div>
+                </div>
               </div>
               
               <div className="flex items-center gap-2">
