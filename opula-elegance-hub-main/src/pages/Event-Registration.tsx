@@ -80,12 +80,12 @@ const EventRegistration = () => {
             <h1 className="font-display text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6 md:mb-10 tracking-[0.1em] font-light">SAVE THE DATE</h1>
             
             <div className="mb-6 sm:mb-8">
-              {/* DHB Logo */}
-              <div className="h-10 sm:h-12 flex items-center justify-center">
+              {/* AJYAL DHB Logo */}
+              <div className="h-32 sm:h-36 flex items-center justify-center mt-6">
                 <img
-                  src="/images/DHB logo.png"
-                  alt="DHB"
-                  className="h-auto max-h-8 xs:max-h-10 sm:max-h-12 w-auto"
+                  src="/images/dhb-ajyal-logo.png"
+                  alt="AJYAL DHB GROUP"
+                  className="h-auto max-h-28 xs:max-h-32 sm:max-h-36 md:max-h-40 w-auto"
                 />
               </div>
             </div>
