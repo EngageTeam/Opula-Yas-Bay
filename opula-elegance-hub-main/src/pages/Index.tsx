@@ -341,9 +341,17 @@ const Index = () => {
                   </DialogContent>
                 </Dialog>
               </div>
-              <p className="text-sand-100 text-lg leading-relaxed">
+              <p className="text-sand-100 text-lg leading-relaxed mb-6">
                 Opula represents a balance of luxury, comfort, and modern living, perfect for those seeking a sophisticated yet understated lifestyle.
               </p>
+              <Button
+                className="bg-primary text-white hover:bg-primary/90 px-6"
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Register Now
+              </Button>
             </motion.div>
           </div>
         </div>
@@ -521,7 +529,7 @@ const Index = () => {
       </section>
 
 
-      <section className="py-20 bg-primary text-sand-50">
+      <section id="location" className="py-20 bg-primary text-sand-50">
         <div className="container mx-auto px-6">
           <h2 className="font-display text-3xl xs:text-4xl mb-8 sm:mb-12 text-center">Location</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -548,7 +556,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-sand-100">
+      <section id="contact" className="py-20 bg-sand-100">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center mb-8 sm:mb-12">
             <h2 className="font-display text-3xl xs:text-4xl text-primary mb-3 sm:mb-4">Download Brochure</h2>
