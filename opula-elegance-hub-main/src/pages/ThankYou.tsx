@@ -50,12 +50,12 @@ const ThankYou = () => {
             </p>
             
             <p className="text-primary/70 text-sm sm:text-base mb-8 sm:mb-10">
-              Our team will be in touch with you shortly. The brochure will be sent to your email address.
+              Our team will share the brochure with you soon. In the meantime view our virtual tour.
             </p>
             
             <div className="space-y-4">
               <Button asChild className="bg-primary text-white hover:bg-primary/90 text-sm sm:text-base py-2 px-4 sm:py-2 sm:px-6">
-                <Link to="/">Return to Homepage</Link>
+                <Link to="/virtual-tour">Virtual Tour</Link>
               </Button>
             </div>
           </div>
