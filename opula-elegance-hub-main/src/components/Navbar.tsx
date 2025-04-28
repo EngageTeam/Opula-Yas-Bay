@@ -10,6 +10,8 @@ import {
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = window.location.pathname;
+  const isVirtualTourPage = location === '/virtual-tour';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,10 +39,13 @@ export const Navbar = () => {
             />
           </Link>
           <div className="hidden items-center space-x-8">
-            <NavLink href="#project">About Project</NavLink>
-            <NavLink href="#gallery">Gallery</NavLink>
-            <NavLink href="#location">Location</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
+            <NavLink href="/#project">About Project</NavLink>
+            <NavLink href="/#gallery">Gallery</NavLink>
+            <NavLink href="/#location">Location</NavLink>
+            <NavLink href="/#contact">
+              Virtual Tour
+            </NavLink>
+            <NavLink href="/#contact">Contact</NavLink>
           </div>
           <Sheet>
             <SheetTrigger className="p-1 sm:p-2">
@@ -63,10 +68,13 @@ export const Navbar = () => {
                       className="h-8 sm:h-10 mb-6 sm:mb-8"
                     />
                   </div>
-                  <MobileNavLink href="#project">About Project</MobileNavLink>
-                  <MobileNavLink href="#gallery">Gallery</MobileNavLink>
-                  <MobileNavLink href="#location">Location</MobileNavLink>
-                  <MobileNavLink href="#contact">Contact</MobileNavLink>
+                  <MobileNavLink href="/#project">About Project</MobileNavLink>
+                  <MobileNavLink href="/#gallery">Gallery</MobileNavLink>
+                  <MobileNavLink href="/#location">Location</MobileNavLink>
+                  <MobileNavLink href="/#contact">
+                    Virtual Tour
+                  </MobileNavLink>
+                  <MobileNavLink href="/#contact">Contact</MobileNavLink>
                 </div>
               </div>
             </SheetContent>

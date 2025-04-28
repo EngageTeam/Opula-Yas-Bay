@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import ThankYou from "./pages/ThankYou";
 import EventRegistration from "./pages/Event-Registration";
 import EventThankYou from "./pages/EventThankYou";
+import VirtualTour from "./pages/VirtualTour";
 import Test from "./pages/Test";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/event-registration" element={<EventRegistration />} />
           <Route path="/event-thank-you" element={<EventThankYou />} />
+          <Route path="/virtual-tour" element={<VirtualTour />} />
           <Route path="/test" element={<Test />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

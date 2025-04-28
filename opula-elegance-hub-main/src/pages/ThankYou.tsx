@@ -50,7 +50,7 @@ const ThankYou = () => {
             </p>
             
             <p className="text-primary/70 text-sm sm:text-base mb-8 sm:mb-10">
-              Our team will be in touch with you shortly. The brochure has been sent to your email address.
+              Our team will be in touch with you shortly. The brochure will be sent to your email address.
             </p>
             
             <div className="space-y-4">
