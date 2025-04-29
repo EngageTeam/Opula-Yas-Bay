@@ -298,7 +298,7 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl pt-16 md:pt-20"> {/* Added padding-top to ensure content is visible below navbar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
