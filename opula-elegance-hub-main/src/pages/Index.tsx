@@ -291,7 +291,7 @@ const Index = () => {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://dhbholding.com/wp-content/uploads/2024/10/opula-hb.mp4"
+          src="/images/Opula Hero.mp4"
           muted
           loop
           playsInline
@@ -334,7 +334,7 @@ const Index = () => {
                   <DialogContent className="max-w-4xl p-0 bg-black overflow-hidden">
                     <video
                       className="w-full aspect-video"
-                      src="https://dhbholding.com/wp-content/uploads/2024/10/DHB_YAS-Bay_4k.mp4"
+                      src="/images/Opula Intro.mp4"
                       controls
                       autoPlay
                     />
