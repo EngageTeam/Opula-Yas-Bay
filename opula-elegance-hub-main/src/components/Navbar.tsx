@@ -33,9 +33,9 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <img
-              src="https://dhbholding.com/wp-content/uploads/2024/10/OPULA_Logo_Transparent.svg"
-              alt="Opula Logo"
-              className="h-8 xs:h-10 sm:h-12 md:h-14"
+              src="/images/DHB-White-logo.svg"
+              alt="DHB Logo"
+              className="h-6 xs:h-8 sm:h-9 md:h-10"
             />
           </Link>
           <div className="hidden items-center space-x-8">
@@ -63,9 +63,9 @@ export const Navbar = () => {
                 <div className="flex flex-col space-y-4 sm:space-y-6 mt-8 sm:mt-12 relative z-10 p-6 sm:p-8">
                   <div className="mb-4">
                     <img
-                      src="https://dhbholding.com/wp-content/uploads/2024/10/OPULA_Logo_Transparent.svg"
-                      alt="Opula Logo"
-                      className="h-8 sm:h-10 mb-6 sm:mb-8"
+                      src="/images/DHB-White-logo.svg"
+                      alt="DHB Logo"
+                      className="h-6 sm:h-8 mb-6 sm:mb-8"
                     />
                   </div>
                   <MobileNavLink href="/#project">About Project</MobileNavLink>

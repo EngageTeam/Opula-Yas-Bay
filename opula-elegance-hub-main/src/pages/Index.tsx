@@ -304,10 +304,13 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="font-display text-4xl xs:text-5xl md:text-7xl text-white mb-4 sm:mb-6">
-                Opula Residences
-                <span className="block text-xl xs:text-2xl md:text-3xl mt-2 text-sand-100">Yas Bay</span>
-              </h1>
+              <div className="mb-4 sm:mb-6">
+                <img
+                  src="/images/Opula logo.png"
+                  alt="Opula Residences Yas Bay"
+                  className="h-16 xs:h-20 sm:h-24 md:h-28 object-contain"
+                />
+              </div>
               <p className="text-sand-100 text-base xs:text-lg md:text-xl mb-6 sm:mb-8">
                 Discover a new living experience in Abu Dhabi's most prestigious waterfront address
               </p>
