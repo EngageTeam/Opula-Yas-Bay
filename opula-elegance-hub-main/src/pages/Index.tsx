@@ -324,7 +324,7 @@ const Index = () => {
                   <p className="text-sand-100 text-xs xs:text-sm">Floors</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg">
-                  <p className="text-2xl xs:text-3xl font-display text-white">7</p>
+                  <p className="text-2xl xs:text-3xl font-display text-white">83</p>
                   <p className="text-sand-100 text-xs xs:text-sm">Duplexes</p>
                 </div>
                 <Dialog>
@@ -435,6 +435,122 @@ const Index = () => {
                 <h3 className="font-display text-3xl text-primary mb-2">∞</h3>
                 <p className="text-sm text-primary/60">Views</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Units Section */}
+      <section className="py-20" style={{ backgroundColor: "#144659" }}>
+        <div className="container mx-auto px-6">
+          <h2 className="font-display text-4xl text-white text-center mb-12">Our Units</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12">
+            {/* Row 1 */}
+            <div className="flex flex-col items-center text-center relative">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4">
+                <path d="M15 15H45V40H15V15Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M10 40H50V45H10V40Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M20 25H25V30H20V25Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M30 25H35V30H30V25Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M40 25H45V30H40V25Z" stroke="#D9D9D9" strokeWidth="2" />
+              </svg>
+              <p className="text-white text-xl">Cinema</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center relative">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4">
+                <rect x="15" y="15" width="30" height="30" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M15 25L45 25" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M30 15L30 45" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M22.5 32.5L37.5 17.5" stroke="#D9D9D9" strokeWidth="2" />
+              </svg>
+              <p className="text-white text-xl mb-1">Smart Package &</p>
+              <p className="text-white text-xl">Mailroom Lockers</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4">
+                <rect x="10" y="25" width="40" height="20" stroke="#D9D9D9" strokeWidth="2" />
+                <rect x="15" y="30" width="5" height="5" stroke="#D9D9D9" strokeWidth="2" />
+                <rect x="25" y="30" width="5" height="5" stroke="#D9D9D9" strokeWidth="2" />
+                <rect x="35" y="30" width="5" height="5" stroke="#D9D9D9" strokeWidth="2" />
+                <rect x="15" y="15" width="5" height="5" stroke="#D9D9D9" strokeWidth="2" />
+                <rect x="25" y="15" width="5" height="5" stroke="#D9D9D9" strokeWidth="2" />
+                <rect x="35" y="15" width="5" height="5" stroke="#D9D9D9" strokeWidth="2" />
+              </svg>
+              <p className="text-white text-xl">3 Penthouses</p>
+            </div>
+            
+            {/* Row 2 */}
+            <div className="flex flex-col items-center text-center relative">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4">
+                <path d="M15 15H30V45H15V15Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M20 25H25V30H20V25Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M20 35H25V40H20V35Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M35 25H40V45H35V25Z" stroke="#D9D9D9" strokeWidth="2" />
+                <path d="M30 15L45 25" stroke="#D9D9D9" strokeWidth="2" />
+              </svg>
+              <p className="text-white text-xl">5 Townhouses</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center relative">
+              <p className="text-white font-display text-6xl mb-1">38</p>
+              <p className="text-white text-xl">Studios</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center">
+              <p className="text-white font-display text-6xl mb-1">67</p>
+              <p className="text-white text-xl">1 Bedroom</p>
+            </div>
+            
+            {/* Row 3 */}
+            <div className="flex flex-col items-center text-center relative">
+              <p className="text-white font-display text-6xl mb-1">48</p>
+              <p className="text-white text-xl">2 Bedrooms</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center relative">
+              <p className="text-white font-display text-6xl mb-1">29</p>
+              <p className="text-white text-xl">3 Bedrooms</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center">
+              <p className="text-white font-display text-6xl mb-1">10</p>
+              <p className="text-white text-xl">4 Bedrooms</p>
+            </div>
+            
+            {/* Row 4 */}
+            <div className="flex flex-col items-center text-center relative">
+              <p className="text-white font-display text-6xl mb-1">109</p>
+              <p className="text-white text-xl">Simplexes</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center relative">
+              <p className="text-white font-display text-6xl mb-1">83</p>
+              <p className="text-white text-xl">Duplexes</p>
+              <div className="hidden md:block absolute right-0 top-1/2 w-px h-4/5 bg-gray-500/30 -translate-y-1/2"></div>
+            </div>
+            
+            <div className="flex flex-col items-center text-center">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4">
+                <path d="M45 35H15C13.8954 35 13 34.1046 13 33V30C13 28.8954 13.8954 28 15 28H45C46.1046 28 47 28.8954 47 30V33C47 34.1046 46.1046 35 45 35Z" stroke="#D9D9D9" strokeWidth="2"/>
+                <path d="M42 28H18L20 20H40L42 28Z" stroke="#D9D9D9" strokeWidth="2"/>
+                <path d="M18 35V38H22V35" stroke="#D9D9D9" strokeWidth="2"/>
+                <path d="M38 35V38H42V35" stroke="#D9D9D9" strokeWidth="2"/>
+                <circle cx="20" cy="32" r="2" stroke="#D9D9D9" strokeWidth="2"/>
+                <circle cx="40" cy="32" r="2" stroke="#D9D9D9" strokeWidth="2"/>
+                <path d="M25 24H35" stroke="#D9D9D9" strokeWidth="2"/>
+              </svg>
+              <p className="text-white text-xl">Yas Marina Circuit</p>
+              <p className="text-white text-xl">Proximity</p>
             </div>
           </div>
         </div>
