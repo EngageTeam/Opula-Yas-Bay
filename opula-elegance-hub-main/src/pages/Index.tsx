@@ -291,7 +291,7 @@ const Index = () => {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          src="/images/Opula Hero.mp4"
+          src="/images/Opula-hb-updated.mp4" 
           muted
           loop
           playsInline

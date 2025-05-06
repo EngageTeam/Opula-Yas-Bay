@@ -10,7 +10,9 @@ import { useTrackingEvents } from "../hooks/use-tracking-events";
 const EventRegistration = () => {
   const navigate = useNavigate();
   const { trackPageView, trackLeadEvent } = useTrackingEvents();
-  const [formData, setFormData] = useState({
+  // No longer needed as registration is closed
+  // Keeping state definition for tracking purposes
+  const [formData] = useState({
     name: "",
     email: "",
     phone: "",
@@ -22,48 +24,7 @@ const EventRegistration = () => {
     trackPageView('event_registration');
   }, [trackPageView]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Track form submission event
-    if (window.fbq) {
-      window.fbq('track', 'Lead');
-    }
-    
-    // Track Spotify alias (email collection)
-    if (window.spdt && formData.email) {
-      window.spdt('alias', {
-        email: formData.email,
-        phone_number: formData.phone || undefined,
-      });
-    }
-    
-    // Track AdRoll identify email
-    if (window.adroll && formData.email) {
-      window.adroll.identify_email(formData.email);
-    }
-    
-    // Track lead event
-    trackLeadEvent('event_registration');
-    
-    toast({
-      title: "Registration Successful",
-      description: "Thank you for registering for the exclusive launch event.",
-    });
-    
-    // Redirect to event thank you page after a short delay
-    setTimeout(() => {
-      navigate('/event-thank-you');
-    }, 1000);
-  };
+  // These handlers are no longer needed as registration is closed
 
   return (
     <div className="min-h-screen text-white flex flex-col">
@@ -134,83 +95,30 @@ const EventRegistration = () => {
             
             <Button
               className="bg-transparent hover:bg-white/20 text-white border border-white px-5 xs:px-6 sm:px-8 py-2 text-xs sm:text-sm font-light rounded-none w-full xs:w-auto"
-              onClick={() => {
-                const formElement = document.getElementById('registration-form');
-                if (formElement) {
-                  formElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              disabled
             >
-              Register Now
+              Event Registration Closed
             </Button>
           </div>
           
         </div>
         
-        {/* Registration Form Section */}
-        <div id="registration-form" className="py-10 sm:py-16 md:py-20 bg-[#2D5A6B]">
-          <div className="container max-w-xl sm:max-w-2xl mx-auto px-4 sm:px-6">
-            <h2 className="font-display text-xl xs:text-2xl sm:text-3xl md:text-4xl text-center mb-6 sm:mb-10 md:mb-12">Register for the Event</h2>
+        {/* Event Closed Message */}
+        <div id="event-closed" className="py-10 sm:py-16 md:py-20 bg-[#2D5A6B]">
+          <div className="container max-w-xl sm:max-w-2xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="font-display text-xl xs:text-2xl sm:text-3xl md:text-4xl text-center mb-6 sm:mb-10">Event Registration Closed</h2>
             
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div className="space-y-1 sm:space-y-2">
-                <Label htmlFor="name" className="text-white text-sm sm:text-base">Full Name</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your full name"
-                  required
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-10 sm:h-12 text-sm sm:text-base"
-                />
-              </div>
-              
-              <div className="space-y-1 sm:space-y-2">
-                <Label htmlFor="email" className="text-white text-sm sm:text-base">Email Address</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email address"
-                  required
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-10 sm:h-12 text-sm sm:text-base"
-                />
-              </div>
-              
-              <div className="space-y-1 sm:space-y-2">
-                <Label htmlFor="phone" className="text-white text-sm sm:text-base">Phone Number</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter your phone number"
-                  required
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-10 sm:h-12 text-sm sm:text-base"
-                />
-              </div>
-              
-              <div className="space-y-1 sm:space-y-2">
-                <Label htmlFor="company" className="text-white text-sm sm:text-base">Company (Optional)</Label>
-                <Input
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Enter your company name"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-10 sm:h-12 text-sm sm:text-base"
-                />
-              </div>
-              
-              <div className="pt-2 sm:pt-4">
-                <Button type="submit" className="w-full bg-[#D4C1A8] hover:bg-[#C4B198] text-[#2D5A6B] font-medium py-3 sm:py-4 md:py-6 rounded-none text-sm sm:text-base">
-                  Confirm Registration
-                </Button>
-              </div>
-            </form>
+            <div className="bg-white/10 border border-white/20 rounded-md p-6 sm:p-8 md:p-10">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mb-4 sm:mb-6">
+                <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z" />
+                <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" />
+                <path d="M4 15v-3a6 6 0 0 1 6-6h0" />
+                <path d="M14 6h0a6 6 0 0 1 6 6v3" />
+              </svg>
+              <p className="text-base sm:text-lg mb-4 sm:mb-6">Thank you for your interest in our exclusive launch event.</p>
+              <p className="text-sm sm:text-base opacity-80 mb-6 sm:mb-8">Registration for this event is now closed. Please check back for future events.</p>
+              <p className="text-sm opacity-70">For any inquiries, please contact <span className="font-bold">800 DHBUAE</span></p>
+            </div>
           </div>
         </div>
         
