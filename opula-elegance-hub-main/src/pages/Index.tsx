@@ -105,11 +105,7 @@ const galleryImages = [
     alt: "Duplex Living Area - Afternoon View 2",
     category: "living"
   },
-  {
-    src: "/images/Doublex - Living area -Afternoon.jpg",
-    alt: "Duplex Living Area - Afternoon View",
-    category: "living"
-  },
+ 
   {
     src: "/images/ELEVATOR LOBBY.jpg",
     alt: "Elevator Lobby",
@@ -175,11 +171,7 @@ const galleryImages = [
     alt: "Townhouse Living & Dining Area",
     category: "living"
   },
-  {
-    src: "/images/TYPICAL BATHROOM 1 copy.jpg",
-    alt: "Typical Bathroom 1",
-    category: "bathroom"
-  },
+  
   {
     src: "/images/TYPICAL BATHROOM 2.jpg",
     alt: "Typical Bathroom 2",
@@ -412,12 +404,6 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-display text-4xl text-primary mb-6">A NEW LIVING EXPERIENCE</h2>
-              <p className="text-primary/80 leading-relaxed">
-                Opula combines modern architectural design with serene waterfront views for a unique living experience. Its minimalist lines and glass façades invite natural light and blend with the landscape.
-              </p>
-            </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-sand-100 p-6 rounded-lg">
                 <h3 className="font-display text-3xl text-primary mb-2">192</h3>
@@ -435,6 +421,12 @@ const Index = () => {
                 <h3 className="font-display text-3xl text-primary mb-2">∞</h3>
                 <p className="text-sm text-primary/60">Views</p>
               </div>
+            </div>
+            <div>
+              <h2 className="font-display text-4xl text-primary mb-6">A New Living Experience</h2>
+              <p className="text-primary/80 leading-relaxed">
+                Opula combines modern architectural design with serene waterfront views for a unique living experience. Its minimalist lines and glass façades invite natural light and blend with the landscape.
+              </p>
             </div>
           </div>
         </div>
@@ -648,6 +640,32 @@ const Index = () => {
             </div>
           </DialogContent>
         </Dialog>
+      </section>
+
+      {/* DHB Holding Section */}
+      <section className="py-20 bg-sand-50">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+              <img
+                src="/images/who-we-are-header-unopt.jpg" 
+                alt="DHB Holding Luxury Development"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            </div>
+            <div>
+              <h2 className="font-display text-4xl text-primary mb-6">DHB Holding</h2>
+              <p className="text-primary/80 leading-relaxed mb-6">
+                With a proven history of developing luxury residences in the UAE, DHB Holding is driven by core values of quality and integrity. At Opula Residences, this translates into meticulously crafted homes and strong, trustworthy relationships with future residents.
+              </p>
+              <p className="text-primary/80 leading-relaxed">
+                Their focus on creativity ensures unique and thoughtful designs that prioritize comfort and style, creating living spaces that are both elegant and functional.
+              </p>
+              <div className="mt-8 h-px w-24 bg-primary/30"></div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="location" className="py-20 bg-primary text-sand-50">
