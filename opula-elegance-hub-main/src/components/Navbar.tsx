@@ -42,9 +42,7 @@ export const Navbar = () => {
             <NavLink href="/#project">About Project</NavLink>
             <NavLink href="/#gallery">Gallery</NavLink>
             <NavLink href="/#location">Location</NavLink>
-            <NavLink href="/virtual-tour">
-              Virtual Tour
-            </NavLink>
+            <NavLink href="/virtual-tour">Virtual Tour</NavLink>
             <NavLink href="/#contact">Contact</NavLink>
           </div>
           <Sheet>
@@ -71,9 +69,7 @@ export const Navbar = () => {
                   <MobileNavLink href="/#project">About Project</MobileNavLink>
                   <MobileNavLink href="/#gallery">Gallery</MobileNavLink>
                   <MobileNavLink href="/#location">Location</MobileNavLink>
-                  <MobileNavLink href="/virtual-tour">
-                    Virtual Tour
-                  </MobileNavLink>
+                  <MobileNavLink href="/virtual-tour">Virtual Tour</MobileNavLink>
                   <MobileNavLink href="/#contact">Contact</MobileNavLink>
                 </div>
               </div>
